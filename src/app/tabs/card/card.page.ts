@@ -1,7 +1,8 @@
 import { ICards } from './../../interfaces/cards';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CardsService } from 'src/app/services/cards/cards.service';
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-card',
@@ -9,8 +10,13 @@ import { CardsService } from 'src/app/services/cards/cards.service';
   styleUrls: ['./card.page.scss'],
 })
 export class CardPage implements OnInit {
-
-  cards!: ICards;
+  @ViewChild('slides', { static: false }) slides!: IonSlides
+  slidesIndex = 0;
+  cards!: ICards[];
+  ngnCards!: ICards[];
+  usdCards!: ICards[];
+  currentCard!: ICards;
+  selectedCardType = 'USD';
 
   constructor(
     private router: Router,
@@ -18,13 +24,9 @@ export class CardPage implements OnInit {
     private cardsService: CardsService
   ) {
     this.getCards();
-   }
-
-  ngOnInit() {
   }
 
-  segmentChanged(e: Event) {
-    console.log(e)
+  ngOnInit() {
   }
 
   showCardDetails() {
@@ -37,10 +39,35 @@ export class CardPage implements OnInit {
       res => {
         console.log(res);
         this.cards = res;
+        this.usdCards = this.cards.filter(card => card.cardCurrency === 'USD');
+        this.ngnCards = this.cards.filter(card => card.cardCurrency === 'NGN');
+        console.log(this.selectedCardType);
+        this.currentCard = this.selectedCardType === 'USD' ? this.usdCards[0] : this.ngnCards[0];
       },
       err => {
         console.log(err);
       }
     )
   }
+  
+  segmentChanged(e: Event) {
+    console.log(e);
+    console.log(this.selectedCardType);
+    this.slidesIndex = 0;
+    this.slides.slideTo(0);
+    this.currentCard = this.selectedCardType === 'USD' ? this.usdCards[0] : this.ngnCards[0];
+  }
+
+  slideChanged(currency: string) {
+    console.log(this.slides);
+    this.slides.getActiveIndex().then(
+      index => {
+        console.log(index);
+        this.slidesIndex = index;
+        this.currentCard = currency === 'NGN' ? this.ngnCards[index] : this.usdCards[index];
+        console.log('currentcard is', this.currentCard);
+      }
+    );
+  }
+  
 }

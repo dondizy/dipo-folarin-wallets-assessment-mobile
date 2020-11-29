@@ -9,14 +9,14 @@ import { tap } from 'rxjs/operators';
 })
 export class CardsService {
 
-  public cards!: ICards;
+  public cards!: ICards[];
 
   constructor(
     private http: HttpClient
   ) { }
 
-  getCards(): Observable<ICards> {
-    return this.http.get<ICards>('../../../assets/cards.json').pipe(
+  getCards(): Observable<ICards[]> {
+    return this.http.get<ICards[]>('../../../assets/cards.json').pipe(
       tap(
         res => {
           this.cards = res;

@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar class="pt-3 pb-0_5 ion-padding-horizontal" mode="ios">
-    <ion-segment class="w-100 mw-500" mode="ios" value="dollar" (ionChange)="segmentChanged($event)">
-      <ion-segment-button value="dollar">
+    <ion-segment class="w-100 mw-500" mode="ios" [(ngModel)]="selectedCardType" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="USD">
         <ion-label>Dollar Cards</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="naira">
+      <ion-segment-button value="NGN">
         <ion-label>Naira Cards</ion-label>
       </ion-segment-button>
     </ion-segment>
@@ -13,13 +13,15 @@
 
 <ion-content fullscreen>
 
-  <div class="ion-padding-horizontal">
+  <div class="ion-padding-horizontal" *ngIf="cards">
     <ion-grid fixed>
       <ion-row>
         <ion-col size="6">
           <ion-note>Card Balance</ion-note>
           <ion-text class="ion-no-margin w-100" color="dark">
-            <h2 class="ion-no-margin mono bold d-inline-block">$20.00</h2>
+            <h2 class="ion-no-margin mono bold d-inline-block">{{currentCard.cardbalance | currency: currentCard.cardCurrency : 'symbol-narrow'}}</h2>
+            <!-- <h2 *ngIf="selectedCardType === 'NGN'" class="ion-no-margin mono bold d-inline-block">{{ngnCards[slidesIndex].cardbalance | currency: 'NGN' : 'symbol-narrow'}}</h2>
+            <h2 *ngIf="selectedCardType === 'USD'" class="ion-no-margin mono bold d-inline-block">{{usdCards[slidesIndex].cardbalance | currency: 'USD': 'symbol-narrow'}}</h2> -->
             <span class="h-100 ion-margin-start">
               <ion-icon name="eye-off-outline"></ion-icon>
             </span>
@@ -33,17 +35,26 @@
       </ion-row>
     </ion-grid>
 
-    <ion-slides class="ion-padding-vertical card" mode="md" pager="md" scrollbar="false">
-      <ion-slide class="ion-margin-bottom" (click)="showCardDetails()">
-        <div class="debit-card front">
+    <ion-slides #slides *ngIf="selectedCardType === 'USD'" class="ion-padding-vertical card" mode="md" pager="md" scrollbar="false" (ionSlideDidChange)="slideChanged('USD')">
+      <ng-container *ngFor="let card of usdCards; let i = index">
+        <ion-slide class="ion-margin-bottom" *ngIf="card.cardCurrency === selectedCardType" (click)="showCardDetails()">
+          <div class="debit-card front">
 
-        </div>
-      </ion-slide>
-      <ion-slide class="ion-margin-bottom" (click)="showCardDetails()">
-        <div class="debit-card back">
+          </div>
+        </ion-slide>
+      </ng-container>
 
-        </div>
-      </ion-slide>
+    </ion-slides>
+
+    <ion-slides #slides *ngIf="selectedCardType === 'NGN'" class="ion-padding-vertical card" mode="md" pager="md" scrollbar="false" (ionSlideDidChange)="slideChanged('NGN')">
+      <ng-container *ngFor="let card of ngnCards; let i = index">
+        <ion-slide class="ion-margin-bottom" *ngIf="card.cardCurrency === selectedCardType" (click)="showCardDetails()">
+          <div class="debit-card front">
+
+          </div>
+        </ion-slide>
+      </ng-container>
+
     </ion-slides>
   </div>
 
@@ -53,7 +64,7 @@
     </ion-button>
   </div>
 
-  <div>
+  <div *ngIf="cards">
     <ion-item class="text-1" lines="none">
       <ion-label class="fw-500">Transactions</ion-label>
       <ion-text color="dark" slot="end">
@@ -61,23 +72,13 @@
       </ion-text>
     </ion-item>
     <div class="ion-padding-horizontal">
-      <ion-item class="text-1 pt-1 pb-1 item-no-padding-start item-no-padding-end border-bottom-light" lines="none">
-        <ion-icon slot="start" src="../../../assets/icon/wallet-funding.svg" class="text-2_5"></ion-icon>
+      <ion-item *ngFor="let transaction of currentCard.Transactions" class="text-1 pt-1 pb-1 item-no-padding-start item-no-padding-end border-bottom-light" lines="none">
+        <ion-icon slot="start" [src]="transaction.transactiontype === 'cr' ? '../../../assets/icon/wallet-funding.svg' : '../../../assets/icon/transfer-debit.svg'" class="text-2_5"></ion-icon>
         <ion-text class="w-100">
-          <div>Dollar Card Topup via Wallet</div>
+          <div>{{transaction.narration}}</div>
           <div class="d-flex text-0_9 muted">
-            <div class="mono w-100">{{'6.00' | currency}} </div>
-            <div class="ion-text-right w-100">Yesterday</div>
-          </div>
-        </ion-text>
-      </ion-item>
-      <ion-item class="text-1 pt-1 pb-1 item-no-padding-start item-no-padding-end border-bottom-light" lines="none">
-        <ion-icon slot="start" src="../../../assets/icon/transfer-debit.svg" class="text-2_5"></ion-icon>
-        <ion-text class="w-100">
-          <div>Transfer Funds to Jane Doe</div>
-          <div class="d-flex text-0_9 muted">
-            <div class="mono w-100">{{'-2.00' | currency}} </div>
-            <div class="ion-text-right w-100">Jun 16</div>
+            <div class="mono w-100">{{transaction.transactiontype === 'dr' ? '-' : ''}}{{transaction.Amount | currency}} </div>
+            <div class="ion-text-right w-100">{{transaction.TransactionDate | transactionDate | date:'mediumDate'}}</div>
           </div>
         </ion-text>
       </ion-item>

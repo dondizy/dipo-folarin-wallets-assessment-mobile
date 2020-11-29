@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { CardPageRoutingModule } from './card-routing.module';
 
 import { CardPage } from './card.page';
+import { TransactionDatePipe } from 'src/app/pipes/transaction-date.pipe';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { CardPage } from './card.page';
     IonicModule,
     CardPageRoutingModule
   ],
-  declarations: [CardPage]
+  declarations: [CardPage, TransactionDatePipe]
 })
 export class CardPageModule {}
