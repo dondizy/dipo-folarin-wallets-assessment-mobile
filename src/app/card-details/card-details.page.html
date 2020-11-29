@@ -1,0 +1,143 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="pt-3 pb-0_5 ion-padding-start" mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button class="btn-back" color="light" text="" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-1_15 bold" color="light">Card Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-bottom">
+
+  <div class="ion-padding-horizontal">
+    <ion-slides class="ion-no-padding ion-padding-vertical card w-100" mode="md" pager="md" scrollbar="false">
+      <ion-slide class="ion-no-padding ion-margin-bottom">
+        <ion-card class="front w-100">
+          <ion-card-content class="ion-no-padding ion-padding-horizontal w-100">
+            <ion-item class="ion-no-padding item-no-padding-end item-no-padding-start item-transparent" lines="none">
+              <ion-label class="mono text-1_1 bold" color="light">{{'16000' | currency}}</ion-label>
+              <ion-text color="light">
+                <p>Card Balance</p>
+              </ion-text>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div class="border-top-light border-bottom-light">
+
+    <ion-item
+      class="text-1 pt-0_8 pb-0_8 ion-padding-horizontal item-no-padding-start item-no-padding-end border-bottom-light"
+      lines="none">
+      <ion-text class="w-100">
+        <div>
+          <ion-note class="text-0_9 muted">Card Name</ion-note>
+        </div>
+        <div class="d-flex text-1 mt-0_5">
+          <div class="w-100 m-auto">Sandra Smith</div>
+          <ion-button class="copy" fill="clear">
+            <span class="text-0_9">Copy</span>
+          </ion-button>
+        </div>
+      </ion-text>
+    </ion-item>
+
+    <ion-item
+      class="text-1 pt-0_8 pb-0_8 ion-padding-horizontal item-no-padding-start item-no-padding-end border-bottom-light"
+      lines="none">
+      <ion-text class="w-100">
+        <div>
+          <ion-note class="text-0_9 muted">Card Number</ion-note>
+        </div>
+        <div class="d-flex text-1 mt-0_5">
+          <div class="w-100 m-auto">4056 5647 7804 5439</div>
+          <ion-button class="copy" fill="clear">
+            <span class="text-0_9">Copy</span>
+          </ion-button>
+        </div>
+      </ion-text>
+    </ion-item>
+
+    <ion-item
+      class="text-1 pt-0_8 pb-0_8 ion-padding-horizontal item-no-padding-start item-no-padding-end border-bottom-light"
+      lines="none">
+      <ion-text class="w-100">
+        <div>
+          <ion-note class="text-0_9 muted">Expiry Date</ion-note>
+        </div>
+        <div class="d-flex text-1 mt-0_5">
+          <div class="w-100 m-auto">05/23</div>
+        </div>
+      </ion-text>
+    </ion-item>
+
+    <ion-item
+      class="text-1 pt-0_8 pb-0_8 ion-padding-horizontal item-no-padding-start item-no-padding-end border-bottom-light"
+      lines="none">
+      <ion-text class="w-100">
+        <div>
+          <ion-note class="text-0_9 muted">CVV</ion-note>
+        </div>
+        <div class="d-flex text-1 mt-0_5">
+          <div class="w-100 m-auto">944</div>
+        </div>
+      </ion-text>
+    </ion-item>
+
+    <ion-item
+      class="text-1 pt-0_8 pb-0_8 ion-padding-horizontal item-no-padding-start item-no-padding-end border-bottom-light"
+      lines="none">
+      <ion-text class="w-100">
+        <div>
+          <ion-note class="text-0_9 muted">Billing Address</ion-note>
+        </div>
+        <div class="d-flex text-1 mt-0_5">
+          <div class="w-100 m-auto">4325 Todd St, FREMONT, CARLIFONIA</div>
+          <ion-button class="copy" fill="clear">
+            <span class="text-0_9">Copy</span>
+          </ion-button>
+        </div>
+      </ion-text>
+    </ion-item>
+
+    <ion-item class="text-1 pt-0_8 pb-0_8 ion-padding-horizontal item-no-padding-start item-no-padding-end" lines="none">
+      <ion-text class="w-100">
+        <div>
+          <ion-note class="text-0_9 muted">Zip Code</ion-note>
+        </div>
+        <div class="d-flex text-1 mt-0_5">
+          <div class="w-100 m-auto">99766</div>
+        </div>
+      </ion-text>
+    </ion-item>
+
+    <ion-item
+      class="bg-tertiary text-1 pt-0_8 pb-0_8 ion-padding-horizontal item-no-padding-start item-no-padding-end item-transparent"
+      lines="none">
+      <ion-label>Freeze Card</ion-label>
+      <ion-toggle mode="ios" slot="end" color="primary"></ion-toggle>
+    </ion-item>
+
+  </div>
+
+</ion-content>
+
+<ion-footer class=" pb-1 border-top-light">
+  <ion-toolbar class="pt-0_5">
+    <div class="d-flex w-100 m-auto ">
+      <ion-buttons class="m-auto w-100 mw-500 ion-padding-horizontal ion-justify-content-around">
+        <ion-button class="fund text-1">
+          Fund Card
+        </ion-button>
+        <ion-button class="withdraw text-1">
+          Withdraw Funds
+        </ion-button>
+        <ion-button class="delete text-1">
+          Delete Card
+        </ion-button>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-footer>

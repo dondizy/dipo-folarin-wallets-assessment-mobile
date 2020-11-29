@@ -1,17 +1,17 @@
 <ion-header>
-  <ion-toolbar class="pt-3 pb-05">
-    <ion-segment class="w-100 ion-margin-horizontal" mode="ios" value="pizza" (ionChange)="segmentChanged($event)">
-      <ion-segment-button value="pizza">
+  <ion-toolbar class="pt-3 pb-0_5 ion-padding-horizontal" mode="ios">
+    <ion-segment class="w-100 mw-500" mode="ios" value="dollar" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="dollar">
         <ion-label>Dollar Cards</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="pasta">
+      <ion-segment-button value="naira">
         <ion-label>Naira Cards</ion-label>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
 
   <div class="ion-padding-horizontal">
     <ion-grid fixed>
@@ -33,13 +33,13 @@
       </ion-row>
     </ion-grid>
 
-    <ion-slides class="ion-padding-vertical" mode="md" pager="md" scrollbar="false">
-      <ion-slide class="ion-margin-bottom">
+    <ion-slides class="ion-padding-vertical card" mode="md" pager="md" scrollbar="false">
+      <ion-slide class="ion-margin-bottom" (click)="showCardDetails()">
         <div class="debit-card front">
 
         </div>
       </ion-slide>
-      <ion-slide class="ion-margin-bottom">
+      <ion-slide class="ion-margin-bottom" (click)="showCardDetails()">
         <div class="debit-card back">
 
         </div>
@@ -48,7 +48,7 @@
   </div>
 
   <div class="ion-margin-top ion-padding fund-card d-flex ion-justify-content-center">
-    <ion-button class="btn-default ion-text-uppercase w-100 bold">
+    <ion-button class="btn-default ion-text-uppercase w-100 mw-500 bold">
       Fund Card
     </ion-button>
   </div>
@@ -61,7 +61,7 @@
       </ion-text>
     </ion-item>
     <div class="ion-padding-horizontal">
-      <ion-item class="text-1 pt-1 pb-1 item-no-padding-start item-no-padding-end item-border-bottom" lines="none">
+      <ion-item class="text-1 pt-1 pb-1 item-no-padding-start item-no-padding-end border-bottom-light" lines="none">
         <ion-icon slot="start" src="../../../assets/icon/wallet-funding.svg" class="text-2_5"></ion-icon>
         <ion-text class="w-100">
           <div>Dollar Card Topup via Wallet</div>
@@ -71,7 +71,7 @@
           </div>
         </ion-text>
       </ion-item>
-      <ion-item class="text-1 pt-1 pb-1 item-no-padding-start item-no-padding-end item-border-bottom" lines="none">
+      <ion-item class="text-1 pt-1 pb-1 item-no-padding-start item-no-padding-end border-bottom-light" lines="none">
         <ion-icon slot="start" src="../../../assets/icon/transfer-debit.svg" class="text-2_5"></ion-icon>
         <ion-text class="w-100">
           <div>Transfer Funds to Jane Doe</div>

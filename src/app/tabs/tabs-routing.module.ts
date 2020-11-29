@@ -13,7 +13,7 @@ const routes: Routes = [
       },
       {
         path: 'transactions',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        loadChildren: () => import('../transactions/transactions.module').then(m => m.TransactionsPageModule)
       },
       {
         path: 'card',
@@ -30,7 +30,12 @@ const routes: Routes = [
     path: '',
     redirectTo: '/tabs/card',
     pathMatch: 'full'
-  }
+  },
+  // {
+  //   path: '**',
+  //   redirectTo: '/tabs/card',
+  //   pathMatch: 'full'
+  // }
 ];
 
 @NgModule({

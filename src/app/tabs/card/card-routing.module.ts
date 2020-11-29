@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: CardPage
+  },
+  {
+    path: 'card-details',
+    loadChildren: () => import('../../card-details/card-details.module').then( m => m.CardDetailsPageModule)
   }
 ];
 
