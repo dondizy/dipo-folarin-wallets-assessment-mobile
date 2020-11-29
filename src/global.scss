@@ -35,6 +35,11 @@
   src: url("./assets/fonts/IBMPlexMono-Regular.ttf");
 }
 
+@font-face {
+  font-family: "OCR A Extended";
+  src: url("./assets/fonts/OCRAEXT.ttf");
+}
+
 :root {
   font-size: 14px;
   --ion-safe-area-top: 20px;
@@ -48,6 +53,10 @@
 
 .mono {
   font-family: "IBM Plex Mono" !important;
+}
+
+.ocr {
+    font-family: "OCR A Extended" !important;
 }
 
 .d-flex {
@@ -294,6 +303,10 @@
   padding-right: 5em !important;
 }
 
+.text-0_5 {
+  font-size: 0.5rem !important;
+}
+
 .text-0_8 {
   font-size: 0.8rem !important;
 }
@@ -405,4 +418,12 @@
 
 .bg-tertiary {
   background-color: var(--ion-color-tertiary-shade) !important;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
 }

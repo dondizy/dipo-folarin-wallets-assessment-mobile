@@ -23,5 +23,56 @@
 }
 
 .purple {
-    color: purple;
+  color: purple;
+}
+
+.inner-card {
+  .wallets {
+    position: absolute;
+    top: 17px;
+    left: 20.32px;
+  }
+  .visa {
+    position: absolute;
+    top: 21px;
+    right: 22.8px;
+  }
+  .name-placeholder {
+    position: absolute;
+    bottom: 53px;
+    left: 31.32px;
+    letter-spacing: 1.5px;
+    color: #d3dde5;
+  }
+  .name {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-shadow: 1px 1px black;
+  }
+  .expiry-placeholder {
+    position: absolute;
+    bottom: 53px;
+    right: 46px;
+    letter-spacing: 1.5px;
+    color: #d3dde5;
+  }
+  .expiry {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-shadow: 1px 1px black;
+  }
+  .card-number {
+    position: absolute;
+    bottom: 91px;
+    left: 29.32px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-shadow: 1px 1px black;
+  }
 }

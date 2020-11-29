@@ -20,8 +20,6 @@
           <ion-note>Card Balance</ion-note>
           <ion-text class="ion-no-margin w-100" color="dark">
             <h2 class="ion-no-margin mono bold d-inline-block">{{currentCard.cardbalance | currency: currentCard.cardCurrency : 'symbol-narrow'}}</h2>
-            <!-- <h2 *ngIf="selectedCardType === 'NGN'" class="ion-no-margin mono bold d-inline-block">{{ngnCards[slidesIndex].cardbalance | currency: 'NGN' : 'symbol-narrow'}}</h2>
-            <h2 *ngIf="selectedCardType === 'USD'" class="ion-no-margin mono bold d-inline-block">{{usdCards[slidesIndex].cardbalance | currency: 'USD': 'symbol-narrow'}}</h2> -->
             <span class="h-100 ion-margin-start">
               <ion-icon name="eye-off-outline"></ion-icon>
             </span>
@@ -38,8 +36,16 @@
     <ion-slides #slides *ngIf="selectedCardType === 'USD'" class="ion-padding-vertical card" mode="md" pager="md" scrollbar="false" (ionSlideDidChange)="slideChanged('USD')">
       <ng-container *ngFor="let card of usdCards; let i = index">
         <ion-slide class="ion-margin-bottom" *ngIf="card.cardCurrency === selectedCardType" (click)="showCardDetails()">
-          <div class="debit-card front">
-
+          <div class="debit-card front relative">
+            <div class="inner-card">
+              <img class="wallets" src="../../../assets//img/wordmark_wallet_white.png" alt="wallets_logo">
+              <img class="visa" src="../../../assets//img/visa.png" alt="wallets_logo">
+              <span class="card-number text-1_5 ocr">{{card.cardnumber}}</span>
+              <span class="name-placeholder text-0_5">CARD HOLDER</span>
+              <span class="name text-1_1 ocr ion-text-uppercase">{{card.cardName}}</span>
+              <span class="expiry-placeholder text-0_5">EXPIRES</span>
+              <span class="expiry text-1_1 ocr">{{card.ExpiryMonth}}/{{card.ExpiryYear}}</span>
+            </div>
           </div>
         </ion-slide>
       </ng-container>
@@ -49,8 +55,16 @@
     <ion-slides #slides *ngIf="selectedCardType === 'NGN'" class="ion-padding-vertical card" mode="md" pager="md" scrollbar="false" (ionSlideDidChange)="slideChanged('NGN')">
       <ng-container *ngFor="let card of ngnCards; let i = index">
         <ion-slide class="ion-margin-bottom" *ngIf="card.cardCurrency === selectedCardType" (click)="showCardDetails()">
-          <div class="debit-card front">
-
+          <div class="debit-card front relative">
+            <div class="inner-card">
+              <img class="wallets" src="../../../assets//img/wordmark_wallet_white.png" alt="wallets_logo">
+              <img class="visa" src="../../../assets//img/visa.png" alt="wallets_logo">
+              <span class="card-number text-1_5 ocr">{{card.cardnumber}}</span>
+              <span class="name-placeholder text-0_5">CARD HOLDER</span>
+              <span class="name text-1_1 ocr ion-text-uppercase">{{card.cardName}}</span>
+              <span class="expiry-placeholder text-0_5">EXPIRES</span>
+              <span class="expiry text-1_1 ocr">{{card.ExpiryMonth}}/{{card.ExpiryYear}}</span>
+            </div>
           </div>
         </ion-slide>
       </ng-container>
