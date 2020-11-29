@@ -1,3 +1,5 @@
+import { ICards } from './../interfaces/cards';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardDetailsPage implements OnInit {
 
-  constructor() { }
-
+  card!: ICards
+  
+  constructor(
+    private router: Router
+  ) {
+  }
+  
   ngOnInit() {
+    this.card = this.router.getCurrentNavigation()?.extras?.state?.card;
+    console.log(this.card);
   }
 
 }

@@ -67,7 +67,7 @@
   <div *ngIf="cards">
     <ion-item class="text-1" lines="none">
       <ion-label class="fw-500">Transactions</ion-label>
-      <ion-text color="dark" slot="end">
+      <ion-text class="purple" slot="end" (click)="showTransactions()">
         <p>See all</p>
       </ion-text>
     </ion-item>

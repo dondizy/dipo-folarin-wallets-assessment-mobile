@@ -31,7 +31,7 @@ export class CardPage implements OnInit {
 
   showCardDetails() {
     console.log('Show card details');
-    this.router.navigate(['/', 'card-details'])
+    this.router.navigate(['/', 'card-details'], { state: { card: this.currentCard } });
   }
 
   private getCards() {
@@ -49,7 +49,7 @@ export class CardPage implements OnInit {
       }
     )
   }
-  
+
   segmentChanged(e: Event) {
     console.log(e);
     console.log(this.selectedCardType);
@@ -69,5 +69,9 @@ export class CardPage implements OnInit {
       }
     );
   }
-  
+
+  showTransactions() {
+
+  }
+
 }
