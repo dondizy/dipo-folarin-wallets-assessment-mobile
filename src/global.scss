@@ -427,3 +427,9 @@
 .absolute {
     position: absolute;
 }
+
+.bg-image {
+  ion-toolbar {
+    --background: url('./assets/img/header-bg.png') no-repeat center center / cover;
+  }
+}
