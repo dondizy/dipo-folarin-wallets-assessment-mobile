@@ -87,7 +87,7 @@
     </ion-item>
     <div class="ion-padding-horizontal">
       <ion-item *ngFor="let transaction of currentCard.Transactions" class="text-1 pt-1 pb-1 item-no-padding-start item-no-padding-end border-bottom-light" lines="none">
-        <ion-icon slot="start" [src]="transaction.transactiontype === 'cr' ? '../../../assets/icon/wallet-funding.svg' : '../../../assets/icon/transfer-debit.svg'" class="text-2_5"></ion-icon>
+        <ion-icon slot="start" [src]="transaction.transactiontype === 'cr' ? '../../../assets/icon/wallet-funding2.svg' : '../../../assets/icon/transfer-debit.svg'" class="text-2_5"></ion-icon>
         <ion-text class="w-100">
           <div>{{transaction.narration}}</div>
           <div class="d-flex text-0_9 muted">
