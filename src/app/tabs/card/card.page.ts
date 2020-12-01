@@ -17,6 +17,7 @@ export class CardPage implements OnInit {
   usdCards!: ICards[];
   currentCard!: ICards;
   selectedCardType = 'USD';
+  maskedBalance!: string;
 
   constructor(
     private router: Router,
@@ -76,6 +77,15 @@ export class CardPage implements OnInit {
 
   showTransactions() {
 
+  }
+
+  hideBalance() {
+    if(this.maskedBalance) {
+      this.maskedBalance = '';
+      return
+    }
+    const length = this.currentCard.cardbalance.toString().length;
+    this.maskedBalance = ''.padStart(length, '*') + '.**'
   }
 
 }

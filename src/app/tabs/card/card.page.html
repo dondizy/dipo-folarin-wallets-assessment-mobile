@@ -19,10 +19,10 @@
         <ion-col size="6">
           <ion-note>Card Balance</ion-note>
           <ion-text class="ion-no-margin w-100" color="dark">
-            <h2 class="ion-no-margin mono bold d-inline-block">{{currentCard.cardbalance | currency: currentCard.cardCurrency : 'symbol-narrow'}}</h2>
-            <span class="h-100 ion-margin-start">
-              <ion-icon name="eye-off-outline"></ion-icon>
-            </span>
+            <div class="d-flex">
+              <h2 class="ion-no-margin mono bold">{{maskedBalance ? maskedBalance : currentCard.cardbalance | currency: currentCard.cardCurrency : 'symbol-narrow'}}</h2>
+                <ion-icon (click)="hideBalance()" class="ion-margin-start ion-align-self-center text-1_15" name="eye-off-outline"></ion-icon>
+            </div>
           </ion-text>
         </ion-col>
         <ion-col size="6" class="ion-text-right">
