@@ -29,6 +29,10 @@ export class CardPage implements OnInit {
   ngOnInit() {
   }
 
+  ionViewWillLeave(){
+   this.cardsService.currentCard = this.currentCard;
+  }
+
   showCardDetails() {
     console.log('Show card details');
     this.router.navigate(['/', 'card-details'], { state: { card: this.currentCard } });

@@ -10,7 +10,11 @@ const routes: Routes = [
   },
   {
     path: 'card-details',
-    loadChildren: () => import('../../card-details/card-details.module').then( m => m.CardDetailsPageModule)
+    loadChildren: () => import('../../card-details/card-details.module').then(m => m.CardDetailsPageModule)
+  },
+  {
+    path: 'transactions',
+    loadChildren: () => import('../../transactions/transactions.module').then(m => m.TransactionsPageModule)
   }
 ];
 
@@ -18,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CardPageRoutingModule {}
+export class CardPageRoutingModule { }

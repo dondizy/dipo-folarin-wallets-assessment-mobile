@@ -10,6 +10,7 @@ import { tap } from 'rxjs/operators';
 export class CardsService {
 
   public cards!: ICards[];
+  public currentCard!: ICards;
 
   constructor(
     private http: HttpClient

@@ -81,7 +81,7 @@
   <div *ngIf="cards">
     <ion-item class="text-1" lines="none">
       <ion-label class="fw-500">Transactions</ion-label>
-      <ion-text class="purple" slot="end" (click)="showTransactions()">
+      <ion-text class="purple" slot="end" (click)="showTransactions()" [routerLink]="['transactions']">
         <p>See all</p>
       </ion-text>
     </ion-item>
@@ -92,7 +92,7 @@
           <div>{{transaction.narration}}</div>
           <div class="d-flex text-0_9 muted">
             <div class="mono w-100">{{transaction.transactiontype === 'dr' ? '-' : ''}}{{transaction.Amount | currency}} </div>
-            <div class="ion-text-right w-100">{{transaction.TransactionDate | transactionDate | date:'mediumDate'}}</div>
+            <div class="ion-text-right w-100">{{transaction.TransactionDate | transactionDate | date:'MMM dd'}}</div>
           </div>
         </ion-text>
       </ion-item>

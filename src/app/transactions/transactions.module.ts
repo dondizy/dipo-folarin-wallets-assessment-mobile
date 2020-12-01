@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { TransactionsPageRoutingModule } from './transactions-routing.module';
 
 import { TransactionsPage } from './transactions.page';
+import { TransactionDatePipe } from '../pipes/transaction-date.pipe';
+import { GroupByPipe } from '../pipes/group-by-date.pipe';
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { TransactionsPage } from './transactions.page';
     IonicModule,
     TransactionsPageRoutingModule
   ],
-  declarations: [TransactionsPage]
+  declarations: [TransactionsPage, TransactionDatePipe, GroupByPipe]
 })
 export class TransactionsPageModule {}
