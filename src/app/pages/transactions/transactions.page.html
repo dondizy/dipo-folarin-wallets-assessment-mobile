@@ -17,9 +17,17 @@
 
 <ion-content>
   <ng-container *ngIf="currentCard">
-    <ng-container *ngFor="let transactionGroup of currentCard.Transactions | transactionDate : true | sortByDate | groupByDate">
+    <div *ngIf="currentCard.Transactions.length < 1"
+      class="d-flex w-100 ion-justify-content-center ion-align-items-center ion-padding-vertical">
+      <div class="ion-align-self-center">
+        Transactions will appear here
+      </div>
+    </div>
+    <ng-container
+      *ngFor="let transactionGroup of currentCard.Transactions | transactionDate : true | sortByDate | groupByDate">
       <ion-item-divider class="ion-padding-top bg-tertiary">
-        <ion-label class="muted text-1 fw-400 ion-text-uppercase">{{transactionGroup.date | transactionDate | date:'MMMM yyyy'}}</ion-label>
+        <ion-label class="muted text-1 fw-400 ion-text-uppercase">
+          {{transactionGroup.date | transactionDate | date:'MMMM yyyy'}}</ion-label>
       </ion-item-divider>
       <ng-container *ngFor="let transaction of transactionGroup.transactions">
         <div class="ion-padding-horizontal">

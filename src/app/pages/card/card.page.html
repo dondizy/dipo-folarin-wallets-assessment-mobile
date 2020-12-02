@@ -91,6 +91,12 @@
       </ion-text>
     </ion-item>
     <div class="ion-padding-horizontal">
+      <div *ngIf="currentCard.Transactions.length < 1"
+        class="d-flex w-100 ion-justify-content-center ion-align-items-center ion-padding-vertical">
+        <div class="ion-align-self-center">
+          Transactions will appear here
+        </div>
+      </div>
       <ng-container *ngFor="let transaction of currentCard.Transactions | transactionDate | sortByDate; let i = index">
         <transaction *ngIf="i < 2" [card]="currentCard" [transaction]="transaction"></transaction>
       </ng-container>
