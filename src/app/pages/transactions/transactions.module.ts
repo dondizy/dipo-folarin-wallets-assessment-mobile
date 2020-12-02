@@ -7,9 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { TransactionsPageRoutingModule } from './transactions-routing.module';
 
 import { TransactionsPage } from './transactions.page';
-import { TransactionDatePipe } from '../pipes/transaction-date.pipe';
-import { GroupByPipe } from '../pipes/group-by-date.pipe';
-import { SortByDatePipe } from './../pipes/sort-by-date.pipe';
+import { TransactionDatePipe } from '../../pipes/transaction-date.pipe';
+import { GroupByPipe } from '../../pipes/group-by-date.pipe';
+import { SortByDatePipe } from '../../pipes/sort-by-date.pipe';
 
 @NgModule({
   imports: [

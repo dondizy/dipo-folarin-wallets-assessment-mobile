@@ -1,5 +1,5 @@
 import { CardsService } from 'src/app/services/cards/cards.service';
-import { ICards } from './../interfaces/cards';
+import { ICards } from './../../interfaces/cards';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
