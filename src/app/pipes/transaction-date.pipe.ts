@@ -16,7 +16,17 @@ export class TransactionDatePipe implements PipeTransform {
       )
     }
     else {
-      x = value.split(' ')[0];
+      if (typeof value === 'string') {
+        x = value.split(' ')[0];
+      }
+      else {
+        x = value.map(
+          (txn: any) => {
+            txn.TransactionDate = txn.TransactionDate.split(' ')[0];
+            return txn;
+          }
+        )
+      }
     }
     return x
   }

@@ -9,6 +9,7 @@ import { TransactionsPageRoutingModule } from './transactions-routing.module';
 import { TransactionsPage } from './transactions.page';
 import { TransactionDatePipe } from '../pipes/transaction-date.pipe';
 import { GroupByPipe } from '../pipes/group-by-date.pipe';
+import { SortByDatePipe } from './../pipes/sort-by-date.pipe';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { GroupByPipe } from '../pipes/group-by-date.pipe';
     IonicModule,
     TransactionsPageRoutingModule
   ],
-  declarations: [TransactionsPage, TransactionDatePipe, GroupByPipe]
+  declarations: [TransactionsPage, TransactionDatePipe, GroupByPipe, SortByDatePipe]
 })
 export class TransactionsPageModule {}

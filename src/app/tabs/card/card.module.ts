@@ -1,3 +1,4 @@
+import { SortByDatePipe } from './../../pipes/sort-by-date.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +17,6 @@ import { TransactionDatePipe } from 'src/app/pipes/transaction-date.pipe';
     IonicModule,
     CardPageRoutingModule
   ],
-  declarations: [CardPage, TransactionDatePipe]
+  declarations: [CardPage, TransactionDatePipe, SortByDatePipe]
 })
 export class CardPageModule {}
