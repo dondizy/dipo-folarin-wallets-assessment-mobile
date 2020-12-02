@@ -1,0 +1,14 @@
+<ion-item class="text-1 pt-1 pb-1 item-no-padding-start item-no-padding-end border-bottom-light" lines="none">
+    <ion-icon slot="start"
+        [src]="transaction.transactiontype === 'cr' ? '../../../assets/icon/wallet-funding2.svg' : '../../../assets/icon/transfer-debit.svg'"
+        class="text-2_5"></ion-icon>
+    <ion-text class="w-100">
+        <div>{{transaction.narration}}</div>
+        <div class="d-flex text-0_9 muted">
+            <div class="mono w-100">
+                {{transaction.transactiontype === 'dr' ? '-' : ''}}{{transaction.Amount | currency : currentCard.cardCurrency : 'symbol-narrow'}}
+            </div>
+            <div class="ion-text-right w-100">{{transaction.TransactionDate | transactionDate | date:'MMMM dd'}}</div>
+        </div>
+    </ion-text>
+</ion-item>

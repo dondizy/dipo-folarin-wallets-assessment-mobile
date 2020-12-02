@@ -9,14 +9,18 @@ import { CardPageRoutingModule } from './card-routing.module';
 
 import { CardPage } from './card.page';
 import { TransactionDatePipe } from 'src/app/pipes/transaction-date.pipe';
+import { ComponentsModule } from 'src/app/components/components.module';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CardPageRoutingModule
+    CardPageRoutingModule,
+    ComponentsModule,
+    PipesModule
   ],
-  declarations: [CardPage, TransactionDatePipe, SortByDatePipe]
+  declarations: [CardPage]
 })
 export class CardPageModule {}
