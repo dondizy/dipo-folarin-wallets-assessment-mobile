@@ -10,11 +10,11 @@ const routes: Routes = [
   },
   {
     path: 'details',
-    loadChildren: () => import('../../card-details/card-details.module').then(m => m.CardDetailsPageModule)
+    loadChildren: () => import('../card-details/card-details.module').then(m => m.CardDetailsPageModule)
   },
   {
     path: 'transactions',
-    loadChildren: () => import('../../transactions/transactions.module').then(m => m.TransactionsPageModule)
+    loadChildren: () => import('../transactions/transactions.module').then(m => m.TransactionsPageModule)
   }
 ];
 

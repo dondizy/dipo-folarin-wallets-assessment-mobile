@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-card-details',
   templateUrl: './card-details.page.html',
-  styleUrls: ['./card-details.page.scss', '../tabs/card/card.page.scss'],
+  styleUrls: ['./card-details.page.scss', '../card/card.page.scss'],
 })
 export class CardDetailsPage implements OnInit {
 

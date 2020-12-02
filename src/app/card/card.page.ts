@@ -1,4 +1,4 @@
-import { ICards } from './../../interfaces/cards';
+import { ICards } from './../interfaces/cards';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CardsService } from 'src/app/services/cards/cards.service';

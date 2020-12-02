@@ -8,16 +8,12 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'home',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
-      },
-      {
         path: 'transactions',
         loadChildren: () => import('../transactions/transactions.module').then(m => m.TransactionsPageModule)
       },
       {
         path: 'card',
-        loadChildren: () => import('./card/card.module').then(m => m.CardPageModule)
+        loadChildren: () => import('../card/card.module').then(m => m.CardPageModule)
       },
       {
         path: '',
