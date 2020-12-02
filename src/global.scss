@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,3 +24,412 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("./assets/fonts/IBMPlexSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("./assets/fonts/IBMPlexMono-Regular.ttf");
+}
+
+@font-face {
+  font-family: "OCR A Extended";
+  src: url("./assets/fonts/OCRAEXT.ttf");
+}
+
+:root {
+  font-size: 14px;
+  --ion-safe-area-top: 20px;
+  --ion-safe-area-bottom: 22px;
+  font-weight: 400;
+}
+
+* {
+  font-family: "IBM Plex Sans" !important;
+}
+
+.mono {
+  font-family: "IBM Plex Mono" !important;
+}
+
+.ocr {
+    font-family: "OCR A Extended" !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.mt-0_5 {
+  margin-top: 0.5em !important;
+}
+
+.mt-1 {
+  margin-top: 1em !important;
+}
+
+.mt-2 {
+  margin-top: 2em !important;
+}
+
+.mt-3 {
+  margin-top: 3em !important;
+}
+
+.mt-4 {
+  margin-top: 4em !important;
+}
+
+.mt-5 {
+  margin-top: 5em !important;
+}
+
+.mb-05 {
+  margin-bottom: 0.5em !important;
+}
+
+.mb-1 {
+  margin-bottom: 1em !important;
+}
+
+.mb-1_5 {
+  margin-bottom: 1.5em !important;
+}
+
+.mb-2 {
+  margin-bottom: 2em !important;
+}
+
+.mb-3 {
+  margin-bottom: 3em !important;
+}
+
+.mb-4 {
+  margin-bottom: 4em !important;
+}
+
+.mb-5 {
+  margin-bottom: 5em !important;
+}
+
+.ml-05 {
+  margin-left: 0.5em !important;
+}
+
+.ml-1 {
+  margin-left: 1em !important;
+}
+
+.ml-1_5 {
+  margin-left: 1.5em !important;
+}
+
+.ml-2 {
+  margin-left: 2em !important;
+}
+
+.ml-3 {
+  margin-left: 3em !important;
+}
+
+.ml-4 {
+  margin-left: 4em !important;
+}
+
+.ml-5 {
+  margin-left: 5em !important;
+}
+
+.mr-05 {
+  margin-right: 0.5em !important;
+}
+
+.mr-1 {
+  margin-right: 1em !important;
+}
+
+.mr-1_5 {
+  margin-right: 1.5em !important;
+}
+
+.mr-2 {
+  margin-right: 2em !important;
+}
+
+.mr-3 {
+  margin-right: 3em !important;
+}
+
+.mr-4 {
+  margin-right: 4em !important;
+}
+
+.mr-5 {
+  margin-right: 5em !important;
+}
+
+.pt-0_5 {
+  padding-top: 0.5em !important;
+}
+
+.pt-0_8 {
+  padding-top: 0.8em !important;
+}
+
+.pt-1 {
+  padding-top: 1em !important;
+}
+
+.pt-2 {
+  padding-top: 2em !important;
+}
+
+.pt-3 {
+  padding-top: 3em !important;
+}
+
+.pt-4 {
+  padding-top: 4em !important;
+}
+
+.pt-5 {
+  padding-top: 5em !important;
+}
+
+.pb-0_8 {
+  padding-bottom: 0.8em !important;
+}
+
+.pb-0_5 {
+  padding-bottom: 0.5em !important;
+}
+
+.pb-1 {
+  padding-bottom: 1em !important;
+}
+
+.pb-1_5 {
+  padding-bottom: 1.5em !important;
+}
+
+.pb-2 {
+  padding-bottom: 2em !important;
+}
+
+.pb-3 {
+  padding-bottom: 3em !important;
+}
+
+.pb-4 {
+  padding-bottom: 4em !important;
+}
+
+.pb-5 {
+  padding-bottom: 5em !important;
+}
+
+.pl-0_5 {
+  padding-left: 0.5em !important;
+}
+
+.pl-1 {
+  padding-left: 1em !important;
+}
+
+.pl-1_5 {
+  padding-left: 1.5em !important;
+}
+
+.pl-2 {
+  padding-left: 2em !important;
+}
+
+.pl-3 {
+  padding-left: 3em !important;
+}
+
+.pl-4 {
+  padding-left: 4em !important;
+}
+
+.pl-5 {
+  padding-left: 5em !important;
+}
+
+.pr-0_5 {
+  padding-right: 0.5em !important;
+}
+
+.pr-1 {
+  padding-right: 1em !important;
+}
+
+.pr-1_5 {
+  padding-right: 1.5em !important;
+}
+
+.pr-2 {
+  padding-right: 2em !important;
+}
+
+.pr-3 {
+  padding-right: 3em !important;
+}
+
+.pr-4 {
+  padding-right: 4em !important;
+}
+
+.pr-5 {
+  padding-right: 5em !important;
+}
+
+.text-0_5 {
+  font-size: 0.5rem !important;
+}
+
+.text-0_8 {
+  font-size: 0.8rem !important;
+}
+
+.text-0_9 {
+  font-size: 0.9rem !important;
+}
+
+.text-1 {
+  font-size: 1rem !important;
+}
+
+.text-1_1 {
+  font-size: 1.1rem !important;
+}
+
+.text-1_15 {
+  font-size: 1.15rem !important;
+}
+
+.text-1_2 {
+  font-size: 1.2rem !important;
+}
+
+.text-1_5 {
+  font-size: 1.5rem !important;
+}
+
+.text-1_8 {
+  font-size: 1.8rem !important;
+}
+
+.text-2 {
+  font-size: 2rem !important;
+}
+
+.text-2_5 {
+  font-size: 2.5rem !important;
+}
+
+.text-3 {
+  font-size: 3rem !important;
+}
+
+.text-4 {
+  font-size: 4rem !important;
+}
+
+.text-5 {
+  font-size: 5rem !important;
+}
+
+.mw-500 {
+  max-width: 36rem;
+}
+
+.fw-600,
+.bold {
+  font-weight: 600;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.btn-default {
+  --border-radius: 4px !important;
+  --color: var(--ion-color-light) !important;
+  --box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1) !important;
+  --background: var(--ion-color-primary) !important;
+  font-size: 14px !important;
+}
+
+.btn-back {
+  --icon-font-size: 1.3rem;
+}
+
+.muted {
+  color: var(--ion-color-medium) !important;
+}
+
+.item-transparent {
+  --background: transparent !important;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.item-no-padding-start {
+  --padding-start: 0px !important;
+  --inner-padding-start: 0px !important;
+}
+
+.item-no-padding-end {
+  --padding-end: 0px !important;
+  --inner-padding-end: 0px !important;
+}
+
+.border-top-light {
+  border-top: 1px solid var(--ion-color-light) !important;
+}
+
+.border-bottom-light {
+  border-bottom: 1px solid var(--ion-color-light) !important;
+}
+
+.bg-tertiary {
+  background-color: var(--ion-color-tertiary-shade) !important;
+}
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.bg-image {
+  ion-toolbar {
+    --background: url('./assets/img/header-bg.png') no-repeat center center / cover;
+  }
+}

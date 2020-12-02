@@ -1,0 +1,43 @@
+<ion-tabs (ionTabsDidChange)="getCurrentRoute()">
+
+  <ion-tab-bar class="pt-0_5 pb-2" slot="home">
+    <ion-tab-button tab="tab1">
+      <ion-icon style="width: 17px; height: 17px;" color="primary" src="../../assets/icon/Wallet_Afri-01.svg"></ion-icon>
+      <ion-label class="text-0_9">Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="transactions">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="9.66669" cy="9.66672" r="7.66669" class="no-stroke"
+          [ngClass]="{'stroke': currentRoute === 'transactions'}" stroke-width="1.38" />
+        <path d="M9 6.00003V10.5834L11.5 13.0834" class="no-stroke"
+          [ngClass]="{'stroke': currentRoute === 'transactions'}" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+      <ion-label class="text-0_9">Transactions</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="card">
+      <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M18.0076 3.34H3.65259C2.09929 3.34 0.840088 4.5992 0.840088 6.1525V7.02127H20.8201V6.15249C20.8201 4.59919 19.5609 3.34 18.0076 3.34ZM0.840088 15.0075V8.70877H20.8201V15.0075C20.8201 16.5608 19.5609 17.82 18.0076 17.82H3.65259C2.09929 17.82 0.840088 16.5608 0.840088 15.0075ZM11.7383 12.4512C11.2723 12.4512 10.8945 12.8289 10.8945 13.2949C10.8945 13.7609 11.2723 14.1387 11.7383 14.1387H16.2792C16.7452 14.1387 17.1229 13.7609 17.1229 13.2949C17.1229 12.8289 16.7452 12.4512 16.2792 12.4512H11.7383Z"
+          class="no-fill" [ngClass]="{'fill': currentRoute === 'card'}" />
+      </svg>
+      <ion-label class="text-0_9">Card</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="more">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.66666 10H18.3333" stroke="#716E89" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+        <path d="M1.66666 15H18.3333" stroke="#716E89" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+        <path d="M1.66666 5H18.3333" stroke="#716E89" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+
+      <ion-label class="text-0_9">More</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

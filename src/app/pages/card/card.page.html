@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar class="pt-3 pb-0_5 ion-padding-horizontal" mode="ios">
+    <ion-segment class="w-100 mw-500" mode="ios" [(ngModel)]="selectedCardType" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="USD">
+        <ion-label>Dollar Cards</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="NGN">
+        <ion-label>Naira Cards</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <div class="ion-padding-horizontal" *ngIf="cards">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="6">
+          <ion-note>Card Balance</ion-note>
+          <ion-text class="ion-no-margin w-100" color="dark">
+            <div class="d-flex">
+              <h2 class="ion-no-margin mono bold">
+                {{maskedBalance ? maskedBalance : currentCard.cardbalance | currency: currentCard.cardCurrency : 'symbol-narrow'}}
+              </h2>
+              <ion-icon (click)="hideBalance()" class="ion-margin-start ion-align-self-center text-1_15"
+                name="eye-off-outline"></ion-icon>
+            </div>
+          </ion-text>
+        </ion-col>
+        <ion-col size="6" class="ion-text-right">
+          <ion-button class="btn-default ion-text-uppercase">
+            Request Card
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-slides #slides *ngIf="selectedCardType === 'USD'" class="ion-padding-vertical card" mode="md" pager="md"
+      scrollbar="false" (ionSlideDidChange)="slideChanged('USD')">
+      <ng-container *ngFor="let card of usdCards; let i = index">
+        <ion-slide class="ion-margin-bottom" *ngIf="card.cardCurrency === selectedCardType" (click)="showCardDetails()">
+          <div class="debit-card front relative">
+            <div class="inner-card">
+              <img class="wallets" src="../../../assets//img/wordmark_wallet_white.png" alt="wallets_logo">
+              <img class="visa" src="../../../assets//img/visa.png" alt="wallets_logo">
+              <span class="card-number text-1_5 ocr">{{card.cardnumber}}</span>
+              <span class="name-placeholder text-0_5">CARD HOLDER</span>
+              <span class="name text-1_1 ocr ion-text-uppercase">{{card.cardName}}</span>
+              <span class="expiry-placeholder text-0_5">EXPIRES</span>
+              <span class="expiry text-1_1 ocr">{{card.ExpiryMonth}}/{{card.ExpiryYear}}</span>
+            </div>
+          </div>
+        </ion-slide>
+      </ng-container>
+
+    </ion-slides>
+
+    <ion-slides #slides *ngIf="selectedCardType === 'NGN'" class="ion-padding-vertical card" mode="md" pager="md"
+      scrollbar="false" (ionSlideDidChange)="slideChanged('NGN')">
+      <ng-container *ngFor="let card of ngnCards; let i = index">
+        <ion-slide class="ion-margin-bottom" *ngIf="card.cardCurrency === selectedCardType" (click)="showCardDetails()">
+          <div class="debit-card front relative">
+            <div class="inner-card">
+              <img class="wallets" src="../../../assets//img/wordmark_wallet_white.png" alt="wallets_logo">
+              <img class="visa" src="../../../assets//img/visa.png" alt="wallets_logo">
+              <span class="card-number text-1_5 ocr">{{card.cardnumber}}</span>
+              <span class="name-placeholder text-0_5">CARD HOLDER</span>
+              <span class="name text-1_1 ocr ion-text-uppercase">{{card.cardName}}</span>
+              <span class="expiry-placeholder text-0_5">EXPIRES</span>
+              <span class="expiry text-1_1 ocr">{{card.ExpiryMonth}}/{{card.ExpiryYear}}</span>
+            </div>
+          </div>
+        </ion-slide>
+      </ng-container>
+
+    </ion-slides>
+  </div>
+
+  <div class="ion-margin-top ion-padding fund-card d-flex ion-justify-content-center">
+    <ion-button class="btn-default ion-text-uppercase w-100 mw-500 bold">
+      Fund Card
+    </ion-button>
+  </div>
+
+  <div *ngIf="cards">
+    <ion-item class="text-1" lines="none">
+      <ion-label class="fw-500">Transactions</ion-label>
+      <ion-text class="purple" slot="end" (click)="showTransactions()" [routerLink]="['/','tabs','transactions']">
+        <p>See all</p>
+      </ion-text>
+    </ion-item>
+    <div class="ion-padding-horizontal">
+      <ng-container *ngFor="let transaction of currentCard.Transactions | transactionDate | sortByDate; let i = index">
+        <transaction *ngIf="i < 2" [card]="currentCard" [transaction]="transaction"></transaction>
+      </ng-container>
+    </div>
+  </div>
+
+</ion-content>

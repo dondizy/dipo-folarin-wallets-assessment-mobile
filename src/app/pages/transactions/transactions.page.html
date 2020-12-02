@@ -1,0 +1,31 @@
+<ion-header class="ion-no-border bg-image">
+  <ion-toolbar class="pt-3 pb-0_5 ion-padding-start" mode="ios">
+    <ion-buttons slot="start">
+      <ion-back-button class="btn-back" color="light" text="" mode="ios"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="text-1_15 bold" color="light">Transactions</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon class="text-1_5" slot="icon-only" src="../../assets/icon/filter.svg"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-icon class="text-1_5" slot="icon-only" src="../../assets/icon/search.svg"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="currentCard">
+    <ng-container *ngFor="let transactionGroup of currentCard.Transactions | transactionDate : true | sortByDate | groupByDate">
+      <ion-item-divider class="ion-padding-top bg-tertiary">
+        <ion-label class="muted text-1 fw-400 ion-text-uppercase">{{transactionGroup.date | transactionDate | date:'MMMM yyyy'}}</ion-label>
+      </ion-item-divider>
+      <ng-container *ngFor="let transaction of transactionGroup.transactions">
+        <div class="ion-padding-horizontal">
+          <transaction [card]="currentCard" [transaction]="transaction"></transaction>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</ion-content>

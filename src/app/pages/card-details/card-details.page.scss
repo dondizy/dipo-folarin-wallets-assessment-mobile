@@ -1,0 +1,36 @@
+.copy {
+  height: 16px;
+  background-color: var(--ion-color-tertiary);
+  border-radius: 22px;
+  color: purple;
+}
+
+ion-buttons {
+    font-size: 12px !important;
+  .fund {
+    background: #00c9b6;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    --color: var(--ion-color-light);
+  }
+
+  .withdraw {
+    background: #f9f9ff;
+    border: 0.75px solid #ececff;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 4px;
+    --color: var(--ion-color-dark);
+}
+
+.delete {
+    background: rgba(228, 68, 93, 0.2);
+    border: 0.75px solid #e4445d;
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 4px;
+    --color: var(--ion-color-danger);
+  }
+}
