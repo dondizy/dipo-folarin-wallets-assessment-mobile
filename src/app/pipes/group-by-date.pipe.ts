@@ -8,7 +8,6 @@ export class GroupByPipe implements PipeTransform {
     if (!collection) {
       return [];
     }
-    collection = collection.reverse();
     const gc = collection.reduce((previous, current) => {
       if (!previous[current[property]]) {
         previous[current[property]] = [];

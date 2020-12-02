@@ -18,7 +18,6 @@ export class CardDetailsPage implements OnInit {
   
   ngOnInit() {
     this.card = this.router.getCurrentNavigation()?.extras?.state?.card;
-    console.log(this.card);
   }
 
 }

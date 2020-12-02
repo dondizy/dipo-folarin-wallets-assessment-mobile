@@ -31,11 +31,11 @@ const routes: Routes = [
     redirectTo: '/tabs/card',
     pathMatch: 'full'
   },
-  // {
-  //   path: '**',
-  //   redirectTo: '/tabs/card',
-  //   pathMatch: 'full'
-  // }
+  {
+    path: '**',
+    redirectTo: '/tabs/card',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

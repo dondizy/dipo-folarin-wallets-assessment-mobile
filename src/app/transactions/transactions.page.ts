@@ -20,40 +20,5 @@ export class TransactionsPage implements OnInit {
   
   ionViewWillEnter(){
     this.currentCard = this.cardsService.currentCard;
-    console.log(this.currentCard);
   }
-
-
-  events = [{
-    date: '2017-12-26',
-    events: [{
-      id: 1,
-      title: 'First event'
-    }, {
-      id: 3,
-      title: 'Third event'
-    }]
-  },{
-    date: '2017-12-26',
-    events: [{
-      id: 4,
-      title: 'Fourth event'
-    }, {
-      id: 5,
-      title: 'Fifth event'
-    }]
-  }, {
-    date: '2017-12-30',
-    events: [{
-      id: 2,
-      title: 'Second event'
-    }]
-  }, {
-    date: '2017-12-31',
-    events: [{
-      id: 4,
-      title: 'Last event'
-    }]
-  }];
-
 }

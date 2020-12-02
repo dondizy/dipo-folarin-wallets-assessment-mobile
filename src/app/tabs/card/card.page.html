@@ -20,8 +20,11 @@
           <ion-note>Card Balance</ion-note>
           <ion-text class="ion-no-margin w-100" color="dark">
             <div class="d-flex">
-              <h2 class="ion-no-margin mono bold">{{maskedBalance ? maskedBalance : currentCard.cardbalance | currency: currentCard.cardCurrency : 'symbol-narrow'}}</h2>
-                <ion-icon (click)="hideBalance()" class="ion-margin-start ion-align-self-center text-1_15" name="eye-off-outline"></ion-icon>
+              <h2 class="ion-no-margin mono bold">
+                {{maskedBalance ? maskedBalance : currentCard.cardbalance | currency: currentCard.cardCurrency : 'symbol-narrow'}}
+              </h2>
+              <ion-icon (click)="hideBalance()" class="ion-margin-start ion-align-self-center text-1_15"
+                name="eye-off-outline"></ion-icon>
             </div>
           </ion-text>
         </ion-col>
@@ -33,7 +36,8 @@
       </ion-row>
     </ion-grid>
 
-    <ion-slides #slides *ngIf="selectedCardType === 'USD'" class="ion-padding-vertical card" mode="md" pager="md" scrollbar="false" (ionSlideDidChange)="slideChanged('USD')">
+    <ion-slides #slides *ngIf="selectedCardType === 'USD'" class="ion-padding-vertical card" mode="md" pager="md"
+      scrollbar="false" (ionSlideDidChange)="slideChanged('USD')">
       <ng-container *ngFor="let card of usdCards; let i = index">
         <ion-slide class="ion-margin-bottom" *ngIf="card.cardCurrency === selectedCardType" (click)="showCardDetails()">
           <div class="debit-card front relative">
@@ -52,7 +56,8 @@
 
     </ion-slides>
 
-    <ion-slides #slides *ngIf="selectedCardType === 'NGN'" class="ion-padding-vertical card" mode="md" pager="md" scrollbar="false" (ionSlideDidChange)="slideChanged('NGN')">
+    <ion-slides #slides *ngIf="selectedCardType === 'NGN'" class="ion-padding-vertical card" mode="md" pager="md"
+      scrollbar="false" (ionSlideDidChange)="slideChanged('NGN')">
       <ng-container *ngFor="let card of ngnCards; let i = index">
         <ion-slide class="ion-margin-bottom" *ngIf="card.cardCurrency === selectedCardType" (click)="showCardDetails()">
           <div class="debit-card front relative">
@@ -86,16 +91,22 @@
       </ion-text>
     </ion-item>
     <div class="ion-padding-horizontal">
-      <ion-item *ngFor="let transaction of currentCard.Transactions" class="text-1 pt-1 pb-1 item-no-padding-start item-no-padding-end border-bottom-light" lines="none">
-        <ion-icon slot="start" [src]="transaction.transactiontype === 'cr' ? '../../../assets/icon/wallet-funding2.svg' : '../../../assets/icon/transfer-debit.svg'" class="text-2_5"></ion-icon>
-        <ion-text class="w-100">
-          <div>{{transaction.narration}}</div>
-          <div class="d-flex text-0_9 muted">
-            <div class="mono w-100">{{transaction.transactiontype === 'dr' ? '-' : ''}}{{transaction.Amount | currency : currentCard.cardCurrency : 'symbol-narrow'}} </div>
-            <div class="ion-text-right w-100">{{transaction.TransactionDate | transactionDate | date:'MMM dd'}}</div>
-          </div>
-        </ion-text>
-      </ion-item>
+      <ng-container *ngFor="let transaction of currentCard.Transactions; let i = index">
+        <ion-item *ngIf="i < 2" class="text-1 pt-1 pb-1 item-no-padding-start item-no-padding-end border-bottom-light" lines="none">
+          <ion-icon slot="start"
+            [src]="transaction.transactiontype === 'cr' ? '../../../assets/icon/wallet-funding2.svg' : '../../../assets/icon/transfer-debit.svg'"
+            class="text-2_5"></ion-icon>
+          <ion-text class="w-100">
+            <div>{{transaction.narration}}</div>
+            <div class="d-flex text-0_9 muted">
+              <div class="mono w-100">
+                {{transaction.transactiontype === 'dr' ? '-' : ''}}{{transaction.Amount | currency : currentCard.cardCurrency : 'symbol-narrow'}}
+              </div>
+              <div class="ion-text-right w-100">{{transaction.TransactionDate | transactionDate | date:'MMM dd'}}</div>
+            </div>
+          </ion-text>
+        </ion-item>
+      </ng-container>
     </div>
   </div>
 

@@ -9,7 +9,7 @@ const routes: Routes = [
     component: CardPage
   },
   {
-    path: 'card-details',
+    path: 'details',
     loadChildren: () => import('../../card-details/card-details.module').then(m => m.CardDetailsPageModule)
   },
   {
